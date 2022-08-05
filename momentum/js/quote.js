@@ -2,13 +2,14 @@ const changeQuoteButton = document.querySelector('.change-quote')
 const quote = document.querySelector('.quote')
 const author = document.querySelector('.author')
 
+let defaultUserLang4 = navigator.language
 
-function getRandomNum(){
-    return Math.floor(Math.random() * 50);
+function getRandomNum(maxNum){
+    return Math.floor(Math.random() * maxNum);
 }
 
 async function getQuotes() {  
-    const quotesURL = './js/quotes.json';
+    const quotesURL = `./js/quotes-${defaultUserLang4}.json`;
     const response = await fetch(quotesURL);
     const quotesArray = await response.json(); 
     displayQuote(quotesArray)
@@ -16,7 +17,7 @@ async function getQuotes() {
 
 
 function displayQuote(quotesArray){
-    let quoteRandomNum = getRandomNum()
+    let quoteRandomNum = getRandomNum(quotesArray.length)
     quote.innerHTML = `" ${quotesArray[quoteRandomNum].q} "`
     author.innerHTML = `${quotesArray[quoteRandomNum].a}`
 }

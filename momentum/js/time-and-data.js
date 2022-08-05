@@ -1,9 +1,11 @@
 const time = document.querySelector('.time')
 const data = document.querySelector('.date')
 
+let defaultUserLang3 = navigator.language
+
 function showTime(){
     const date = new Date();
-    const currentTime = date.toLocaleTimeString();
+    const currentTime = date.toLocaleTimeString('ru');
     time.textContent = currentTime;
     setTimeout(showTime, 1000);
 }
@@ -11,8 +13,8 @@ function showTime(){
 function showDate(){
     const date = new Date();
     const options = {weekday: 'long', month: 'long', day: 'numeric'};
-    const currentDate = date.toLocaleDateString('en-US', options);
-    data.textContent = currentDate;
+    const currentDate = date.toLocaleDateString(defaultUserLang3, options);
+    data.textContent = currentDate.charAt(0).toUpperCase() + currentDate.slice(1);
 }
 
 function ResetDate() {

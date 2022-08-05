@@ -1,3 +1,15 @@
+const weatherTranslation ={
+    ru: {
+        feelsLiks: 'Ощущается как',
+        windSpeed: 'Скорость ветра',
+        humidity: 'Влажность'
+    },
+    en:{
+        feelsLiks: 'Feels like',
+        windSpeed: 'Wind speed',
+        humidity: 'Humidity' 
+    }
+}
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
@@ -9,16 +21,19 @@ const city = document.querySelector('.city')
 
 const weatherError = document.querySelector('.weather-error');
 
+let defaultUserLang = navigator.language
+
+
 async function getWeather(cityName){
     let url = ''
     cityName = cityName || localStorage.getItem('cityName')
     if(cityName){
-        url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&lang=en&appid=d206e968eb0bd9f3c52c7fb132340ca8&units=metric`
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&lang=${defaultUserLang}&appid=d206e968eb0bd9f3c52c7fb132340ca8&units=metric`
     }
     else{
         let localCityName = await detectLocation()
         city.value = localCityName
-        url = `https://api.openweathermap.org/data/2.5/weather?q=${localCityName}&lang=en&appid=d206e968eb0bd9f3c52c7fb132340ca8&units=metric`
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${localCityName}&lang=${defaultUserLang}&appid=d206e968eb0bd9f3c52c7fb132340ca8&units=metric`
     }
 
     const response = await fetch(url)
@@ -33,9 +48,9 @@ async function getWeather(cityName){
     weatherIcon.classList.add(`owf-${data.weather[0].id}`)
     temperature.innerHTML = `${data.main.temp}&deg;C`
     weatherDescription.textContent = data.weather[0].description
-    weatherFeelsLike.innerHTML = `Feels like: ${data.main.feels_like}&deg;C`
-    weatherWind.textContent = `Wind speed: ${data.wind.speed} m/s`
-    weatherHumidity.textContent = `Humidity: ${data.main.humidity}%`
+    weatherFeelsLike.innerHTML = `${weatherTranslation[defaultUserLang].feelsLiks}: ${data.main.feels_like}&deg;C`
+    weatherWind.textContent = `${weatherTranslation[defaultUserLang].windSpeed}: ${data.wind.speed} m/s`
+    weatherHumidity.textContent = `${weatherTranslation[defaultUserLang].humidity}: ${data.main.humidity}%`
     
     
 }

@@ -126,7 +126,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   row-gap: 5px;
-  width: 180px;
+  width: 200px;
   min-height: 180px;  
   text-align: left;
 }
@@ -215,7 +215,7 @@ body {
   justify-content: stretch;
   align-items: center;
   min-height: 48px;
-  width: 100vw;
+  width: 100%;
   font-size: 40px;
 }
 

@@ -1,15 +1,35 @@
+const greetingTranslation ={
+    ru:{
+        morning:'Доброе утро',
+        afternoon: 'Добрый день',
+        evening: 'Добрый вечер',
+        night: ' Доброй ночи',
+        inputPlaceholder: '[Введите Имя]'
+    },
+    en:{
+        morning:'Good morning',
+        afternoon: 'Good afternoon',
+        evening: 'Good evening',
+        night: ' Good night',
+        inputPlaceholder: '[Enter Name]'
+    }
+}
+let defaultUserLang2 = navigator.language
+
 const greeting = document.querySelector('.greeting-container .greeting')
 const userName = document.querySelector('.name')
 
+userName.placeholder = greetingTranslation[defaultUserLang2].inputPlaceholder
+
 function getTimeOfDay(hours){
     if(hours>=0 && hours <=11.59){
-        return 'morning'
+        return greetingTranslation[defaultUserLang2].morning
     }else if(hours>=12&& hours<=16.59 ){
-        return 'afternoon'
+        return greetingTranslation[defaultUserLang2].afternoon
     }else if(hours >=17 && hours <=20.59){
-        return 'evening'
+        return greetingTranslation[defaultUserLang2].evening
     }else{
-        return 'night'
+        return greetingTranslation[defaultUserLang2].night
     }
 }
 
@@ -18,9 +38,9 @@ function displayTimeOfDay(){
     const hours = date.getHours();
     
     const timeOfDay = getTimeOfDay(hours);
-    const greetingText = `Good ${timeOfDay}, `;
+    const greetingText = timeOfDay;
     
-    greeting.textContent = greetingText
+    greeting.textContent = greetingText + ','
 }
 displayTimeOfDay()
 
