@@ -144,7 +144,7 @@ function customAudioPlay(){
         audioPlayBtn.classList.add('a-pause')
         customAudio.play()
     }
-    customAudio.src = 'http://127.0.0.1:5501/momentum'+ playList[audioPlayNum].src;
+    customAudio.src ='https://nazimajumaniyazova.github.io/Momentum/' + playList[audioPlayNum].src;
     audioName.textContent = playList[audioPlayNum].name
     customAudio.play()
 }
