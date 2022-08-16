@@ -95,7 +95,7 @@ playerControls.addEventListener("click",(event)=>{
 
 function playAudio(){
 
-    audio.src = 'http://127.0.0.1:5501/momentum'+ playList[playNum].src;
+    audio.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[playNum].src;
     audio.currentTime = 0;
     if(isPlay){
         audio.pause();
