@@ -16,10 +16,17 @@ const greetingTranslation ={
 }
 let defaultUserLang2 = navigator.language
 
+const greetingContainer = document.querySelector('.greeting-container')
 const greeting = document.querySelector('.greeting-container .greeting')
 const userName = document.querySelector('.name')
 
-userName.placeholder = greetingTranslation[defaultUserLang2].inputPlaceholder
+//userName.placeholder = greetingTranslation[defaultUserLang2].inputPlaceholder
+
+function changeGreetingLang(lang){
+    defaultUserLang2 = lang
+    userName.placeholder = greetingTranslation[defaultUserLang2].inputPlaceholder
+    displayTimeOfDay()
+}
 
 function getTimeOfDay(hours){
     if(hours>=0 && hours <=11.59){
@@ -43,6 +50,14 @@ function displayTimeOfDay(){
     greeting.textContent = greetingText + ','
 }
 displayTimeOfDay()
+
+function isDisplayGreeting(displayGreeting){
+    if(displayGreeting){
+        greetingContainer.style.display = 'flex'
+    }else{
+        greetingContainer.style.display = 'none'
+    }
+}
 
 function setLocalStorage() {
     localStorage.setItem('name', userName.value);

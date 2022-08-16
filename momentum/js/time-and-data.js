@@ -3,9 +3,29 @@ const data = document.querySelector('.date')
 
 let defaultUserLang3 = navigator.language
 
+function changeDateLang(lang){
+    defaultUserLang3 = lang
+    showDate()
+}
+
+function isDisplayTime(displayTime){
+    if(displayTime){
+        time.style.display = 'block'
+        showTime()
+    }else{
+        time.style.display = 'none'
+    }
+}
+function isDisplayDate(displayDate){
+    if(displayDate){
+        data.style.display = 'block'
+    }else{
+        data.style.display = 'none'
+    }
+}
 function showTime(){
     const date = new Date();
-    const currentTime = date.toLocaleTimeString('ru');
+    const currentTime = date.toLocaleTimeString(STATE.timeFormat);
     time.textContent = currentTime;
     setTimeout(showTime, 1000);
 }
@@ -28,5 +48,5 @@ function ResetDate() {
 }
 
 ResetDate()
-showTime()
+//showTime()
 showDate()

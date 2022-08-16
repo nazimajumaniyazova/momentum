@@ -7,26 +7,35 @@ let randomNum = getRandomNum()
 function getRandomNum(){
     return Math.floor(Math.random() * (21 - 1) + 1);
 }
+
+
 function getSliderNext(){
-    if(randomNum===20){
+    if(randomNum === 20){
         randomNum = 1;
         setBg()
     }else{
         randomNum++
         setBg()
     }
+
 }
 function getSliderPrev(){
     if(randomNum===1){
         randomNum = 20;
         setBg()
     }else{
-        randomNum++
+        randomNum--
         setBg()
     }
 }
-slideNext.addEventListener('click', getSliderNext)
-slidePrev.addEventListener('click', getSliderPrev)
+slideNext.addEventListener('click', ()=>{
+
+    getSliderNext()
+})
+slidePrev.addEventListener('click', ()=>{
+  
+    getSliderPrev()
+})
 
 function setBg(){
     let timeOfDay = setTimeOfDay();
@@ -52,6 +61,4 @@ function setTimeOfDay(){
         return 'night'
     }
 }
-
-
 setBg()

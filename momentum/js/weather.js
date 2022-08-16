@@ -10,6 +10,7 @@ const weatherTranslation ={
         humidity: 'Humidity' 
     }
 }
+const weatherContainer = document.querySelector('.weather')
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
@@ -23,6 +24,20 @@ const weatherError = document.querySelector('.weather-error');
 
 let defaultUserLang = navigator.language
 
+function changeWeatherLang(lang){
+    defaultUserLang = lang
+    getWeather()
+}
+
+function isDisplayWeather(displayWeather){
+    if(displayWeather){
+       
+        weatherContainer.style.display = 'flex'
+    }else{
+       
+        weatherContainer.style.display = 'none'
+    }
+}
 
 async function getWeather(cityName){
     let url = ''
