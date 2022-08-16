@@ -2,7 +2,6 @@
 
 const STATE = {
     lang: navigator.language,
-    photoSource: 'github',
     displayTime: true,
     displayWeather: true,
     displayPlayer: 'default',
@@ -11,7 +10,6 @@ const STATE = {
     displayGreeting: true,
     timeFormat: 'ru',
     displayTodo: true,
-    blocks: ['time', 'date','greeting', 'quote', 'weather', 'audio', 'todolist']
 }
 
 const settingsButton  = document.querySelector('.settings-icon')
@@ -145,25 +143,26 @@ function getLocalStorage2() {
 window.addEventListener('load', ()=>{
     getLocalStorage2();
 
-    timeDisplay.checked = (STATE.displayTime === 'true');
+    timeDisplay.checked = JSON.parse(STATE.displayTime)
     isDisplayTime(timeDisplay.checked);
 
-    weatherDisplay.checked = (STATE.displayWeather === 'true');
+
+    weatherDisplay.checked =JSON.parse(STATE.displayWeather);
     isDisplayWeather(weatherDisplay.checked)
 
     // playerDisplay.checked = (STATE.displayPlayer === 'true');
     // isDisplayPlayer(playerDisplay.checked)
 
-    quoteDisplay.checked = (STATE.displayQuote === 'true');
+    quoteDisplay.checked = JSON.parse(STATE.displayQuote);
     isDisplayQuote(quoteDisplay.checked)
 
-    dateDisplay.checked = (STATE.displayDate === 'true');
+    dateDisplay.checked = JSON.parse(STATE.displayDate);
     isDisplayDate(dateDisplay.checked)
 
-    greetingDisplay.checked = (STATE.displayGreeting === 'true');
+    greetingDisplay.checked = JSON.parse(STATE.displayGreeting);
     isDisplayGreeting(greetingDisplay.checked)
 
-    todoDisplay.checked = (STATE.displayTodo === 'true');
+    todoDisplay.checked = JSON.parse(STATE.displayTodo);
     isDisplayTodo(todoDisplay.checked)
 
     timeFormatInputs.forEach(input =>{
