@@ -44,8 +44,8 @@ playListContainer2.addEventListener('click', (event)=>{
 })
 
 const customAudio = new Audio("");
-customAudio.src = 'http://127.0.0.1:5501/momentum'+ playList[audioPlayNum].src;
-audioImg.src = 'http://127.0.0.1:5501/momentum'+ playList[audioPlayNum].img;
+customAudio.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].src;
+audioImg.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].img;
 audioName.textContent = playList[audioPlayNum].name
 audioTimeline.addEventListener("click",(event)=>{
     const timelineWidth = window.getComputedStyle(audioTimeline).width;
@@ -56,7 +56,7 @@ audioTimeline.addEventListener("click",(event)=>{
 
 customAudio.addEventListener('loadeddata',()=>{
     audioDuration.textContent = getTimeCodeFromNum(customAudio.duration);
-    audioImg.src = 'http://127.0.0.1:5501/momentum'+ playList[audioPlayNum].img;
+    audioImg.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].img;
     customAudio.volume = .75;
 })
 
