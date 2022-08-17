@@ -12,6 +12,9 @@ const STATE = {
     displayTodo: true,
 }
 
+if(navigator.language != 'ru'){
+    STATE.lang = 'en'
+}
 const settingsButton  = document.querySelector('.settings-icon')
 const settingsList  = document.querySelector('.settings-list')
 

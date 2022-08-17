@@ -3,6 +3,10 @@ const data = document.querySelector('.date')
 
 let defaultUserLang3 = navigator.language
 
+if(defaultUserLang3 != 'ru'){
+    defaultUserLang3 = 'en'
+}
+
 function changeDateLang(lang){
     defaultUserLang3 = lang
     showDate()

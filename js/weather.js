@@ -22,7 +22,12 @@ const city = document.querySelector('.city')
 
 const weatherError = document.querySelector('.weather-error');
 
+
 let defaultUserLang = navigator.language
+
+if(defaultUserLang != 'ru'){
+    defaultUserLang = 'en'
+}
 
 function changeWeatherLang(lang){
     defaultUserLang = lang
@@ -61,10 +66,10 @@ async function getWeather(cityName){
     }
  
     weatherIcon.classList.add(`owf-${data.weather[0].id}`)
-    temperature.innerHTML = `${data.main.temp}&deg;C`
+    temperature.innerHTML = `${Math.round(data.main.temp)}&deg;C`
     weatherDescription.textContent = data.weather[0].description
-    weatherFeelsLike.innerHTML = `${weatherTranslation[defaultUserLang].feelsLiks}: ${data.main.feels_like}&deg;C`
-    weatherWind.textContent = `${weatherTranslation[defaultUserLang].windSpeed}: ${data.wind.speed} m/s`
+    weatherFeelsLike.innerHTML = `${weatherTranslation[defaultUserLang].feelsLiks}: ${Math.round(data.main.feels_like)}&deg;C`
+    weatherWind.textContent = `${weatherTranslation[defaultUserLang].windSpeed}: ${Math.round(data.wind.speed)} m/s`
     weatherHumidity.textContent = `${weatherTranslation[defaultUserLang].humidity}: ${data.main.humidity}%`
     
     
@@ -82,6 +87,7 @@ async function detectLocation(){
     let location  = await response.json()
     return location.city.name
 }
+
 function resetWeather(){
     weatherIcon.className ='weather-icon owf'
     temperature.innerHTML = ''

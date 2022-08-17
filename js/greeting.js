@@ -14,7 +14,12 @@ const greetingTranslation ={
         inputPlaceholder: '[Enter Name]'
     }
 }
+
 let defaultUserLang2 = navigator.language
+
+if(defaultUserLang2 != 'ru'){
+    defaultUserLang2 = 'en'
+}
 
 const greetingContainer = document.querySelector('.greeting-container')
 const greeting = document.querySelector('.greeting-container .greeting')

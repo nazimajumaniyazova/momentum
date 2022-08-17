@@ -47,6 +47,7 @@ const customAudio = new Audio("");
 customAudio.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].src;
 audioImg.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].img;
 audioName.textContent = playList[audioPlayNum].name
+
 audioTimeline.addEventListener("click",(event)=>{
     const timelineWidth = window.getComputedStyle(audioTimeline).width;
     const timeToSeek = event.offsetX / parseInt(timelineWidth) * customAudio.duration;

@@ -594,6 +594,10 @@ border-bottom: none;
 .todo-item:not(:last-child){
   margin-bottom: 5px;
 }
+.todo-add{
+display: flex;
+gap: 10px;
+}
 .todo-input{
   width: 100%;
   background-color: #eee;
@@ -602,6 +606,16 @@ border-bottom: none;
   border-radius: 5px;
   padding: 5px 10px;
   margin-top: auto;
+}
+.btn-add-todo{
+    flex-basis: 100px;
+    border: 1px solid rgba(89, 89, 89, 0.8);
+    border-radius: 5px;
+    color: rgba(89, 89, 89, 0.8);
+}
+.btn-add-todo:hover{
+  color: rgba(0, 0, 0, 1);
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 .todo-item-inactive{
   text-decoration: line-through;

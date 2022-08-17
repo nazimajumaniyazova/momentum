@@ -5,6 +5,10 @@ const quoteContainer = document.querySelector('.quote-container')
 
 let defaultUserLang4 = navigator.language
 
+if(defaultUserLang4 != 'ru'){
+    defaultUserLang4 = 'en'
+}
+
 function isDisplayQuote(displayQuote){
     if(displayQuote){
         quoteContainer.style.display = 'block'

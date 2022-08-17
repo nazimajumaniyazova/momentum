@@ -8,6 +8,7 @@ const todoContainer = document.querySelector('.todo-container')
 const todoInput = document.querySelector('.todo-input')
 const todoItemsList = document.querySelector('.todo-items')
 
+const todoAddBtn = document.querySelector('.btn-add-todo')
 
 function isDisplayTodo(displayTodo){
     if(todoContainer.classList.contains('todo-container_active')){
@@ -22,9 +23,18 @@ function isDisplayTodo(displayTodo){
 todo.addEventListener('click',()=>{
     todoContainer.classList.toggle('todo-container_active')
 })
-todoInput.addEventListener('change', ()=>{  
-    createTodoItem(todoInput.value)
-    todoInput.value = ''
+
+todoAddBtn.addEventListener('click',()=>{
+    if(todoInput.value){
+        createTodoItem(todoInput.value)
+        todoInput.value = ''
+    }
+})
+todoInput.addEventListener('keyup', (e)=>{  
+    if(e.key === "Enter" && todoInput.value){
+        createTodoItem(todoInput.value)
+        todoInput.value = ''
+    }
 })
 function createTodoItem(todoItemText, isItemActive){
     const todoItem = document.createElement('div')
@@ -73,6 +83,11 @@ window.addEventListener('beforeunload', ()=>{
 
 window.addEventListener('load', ()=>{  
     userTodos =  JSON.parse(localStorage.getItem("userTodos")) || [];
+  
+    if (localStorage.getItem("hasCodeRunBefore") === null) {
+        specialTodo()  
+        localStorage.setItem("hasCodeRunBefore", true);
+    }
     reestablishTodo(userTodos)
 })
 
@@ -81,3 +96,11 @@ function reestablishTodo(todos){
         createTodoItem(element.text, Object.values(element.classes)[2] || '')
    })
 }
+
+async function specialTodo(){
+    let cityName = await detectLocation()
+    if(cityName.includes('Riga') || cityName.includes('Rīga')){
+        createTodoItem('Add button Special for Aleksejs (Morsul)')
+    }
+}
+

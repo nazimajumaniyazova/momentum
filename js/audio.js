@@ -47,22 +47,6 @@ const playerIcon = document.querySelector('.play')
 let isPlay = false;
 let playNum = 0;
 
-function isDisplayPlayer(displayPlayer){
-    if(displayPlayer === 'default'){
-        defaultPlayerContainer.style.visibility = 'visible'
-        defaultPlayerContainer.style.display = 'block'
-        customPlayerContainer.style.display = 'none'
-    }else if(displayPlayer === 'off'){
-        defaultPlayerContainer.style.visibility = 'hidden'
-        defaultPlayerContainer.style.display = 'block'
-        customPlayerContainer.style.display = 'none'
-    }else{
-        defaultPlayerContainer.style.display = "none"
-        customPlayerContainer.style.display = 'flex'
-    }
-}
-
-
 const audio = new Audio();
 
 function createPlaylist(){
@@ -110,7 +94,9 @@ function playAudio(){
     audioArray.forEach(elem =>{
         elem.classList.remove('item-active')
     })
+
     audioArray[playNum].classList.add('item-active')
+
     audio.onended = ()=>{
         playNext()
     }
@@ -149,4 +135,35 @@ function playPrev(){
     isPlay = false
     playNum--
     playAudio()
+}
+
+function isDisplayPlayer(displayPlayer){
+    if(displayPlayer === 'default'){
+        defaultPlayerContainer.style.visibility = 'visible'
+        defaultPlayerContainer.style.display = 'block'
+        customPlayerContainer.style.display = 'none'
+
+        audioIsPlay = false
+        activePlayBtn()
+        
+    }else if(displayPlayer === 'off'){
+        defaultPlayerContainer.style.visibility = 'hidden'
+        defaultPlayerContainer.style.display = 'block'
+        customPlayerContainer.style.display = 'none'
+        
+        audioIsPlay = false
+        activePlayBtn()
+
+        isPlay = false
+        playerIcon.classList.remove('pause');
+        audio.pause();
+      
+    }else{
+        defaultPlayerContainer.style.display = "none"
+        customPlayerContainer.style.display = 'flex'
+
+        isPlay = false
+        playerIcon.classList.remove('pause');
+        audio.pause();
+    }
 }
