@@ -48,13 +48,34 @@ customAudio.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[aud
 audioImg.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].img;
 audioName.textContent = playList[audioPlayNum].name
 
+
+let isDown = false;
+
 audioTimeline.addEventListener("click",(event)=>{
     const timelineWidth = window.getComputedStyle(audioTimeline).width;
     const timeToSeek = event.offsetX / parseInt(timelineWidth) * customAudio.duration;
     customAudio.currentTime = timeToSeek
 })
 
-
+audioTimeline.addEventListener('mousedown',(event)=>{
+    isDown = true;
+    audioTimeline.style.cursor = 'grabbing'
+    const timelineWidth = window.getComputedStyle(audioTimeline).width;
+    const timeToSeek = event.offsetX / parseInt(timelineWidth) * customAudio.duration;
+    customAudio.currentTime = timeToSeek
+})
+audioTimeline.addEventListener('mouseup',()=>{
+    audioTimeline.style.cursor = 'pointer'
+    isDown = false;
+})
+audioTimeline.addEventListener('mousemove', (event)=>{
+    if(isDown){
+        audioTimeline.style.cursor = 'grabbing'
+        const timelineWidth = window.getComputedStyle(audioTimeline).width;
+    const timeToSeek = event.offsetX / parseInt(timelineWidth) * customAudio.duration;
+    customAudio.currentTime = timeToSeek
+    }
+})
 customAudio.addEventListener('loadeddata',()=>{
     audioDuration.textContent = getTimeCodeFromNum(customAudio.duration);
     audioImg.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].img;
