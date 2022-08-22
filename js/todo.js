@@ -46,6 +46,10 @@ function createTodoItem(todoItemText, isItemActive){
             </label>
             <span class="todo-remove"></span>`
     todoItemsList.append(todoItem)
+    setTimeout(()=>{
+        todoItem.classList.add('visible')
+    },200)
+    // todoItem.classList.add('visible')
 }
 
 todoItemsList.addEventListener('change', (e)=>{

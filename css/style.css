@@ -505,6 +505,19 @@ height: 8px;
   justify-content: space-between;
   align-items: center;
 }
+.audio-controls > button {
+  opacity: 0.5;
+  transition:  all 0.3s ease;
+}
+.audio-controls > button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.audio-controls > button:active {
+  opacity: 1;
+  transform: scale(1.8);
+}
+
 
 .audio-random{
   width: 20px;
@@ -573,23 +586,46 @@ height: 8px;
 }
 .todo-container{
   width: 420px;
-  min-height: 100px;
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 15px;
+
   position: absolute;
   bottom: 50px;
   right: 30px;
   background-color: #FAFBFD;
   border-radius: 5px; 
-  display: none;
-  gap: 10px;
-  padding: 15px;
+  display: flex;
   flex-direction: column;
+  gap: 10px;
   color: #595959;
   z-index: 100;
-  overflow: hidden;
   transition: all .3s ease;
+
+  opacity: 0; 
+  visibility: hidden; 
+  transition-duration: 500ms, 500ms,500ms, 1000ms; 
+  transition-property: opacity, min-height,max-height, visibility; 
+  transition-delay: 0, 0, 0; 
 }
+
 .todo-container_active{
-  display: flex;
+  /* height: auto;
+  height: 100%;
+  min-height: 100px;
+  max-height: 100%;
+  padding: 15px;
+
+  transition: all .3s ease; */
+  /* height: 100px; */
+  min-height: 100px;
+  max-height: 100vh;
+  opacity: 1; 
+  visibility: visible; 
+  transition-duration: 500ms, 500ms,500ms, 1000ms; 
+  transition-property: opacity, min-height, max-height, visibility; 
+  transition-delay: 0, 0, 0,0;
 } 
 .todo-items{
   margin-bottom: 10px;
@@ -639,12 +675,31 @@ gap: 10px;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url('../assets/svg/iconmonstr-x-mark-circle-thin.svg');
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.todo-remove:hover{
+  opacity: 1;
+  transform: scale(1.1);
 }
 .todo-items__column{
-  display: flex;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
   align-items: center;
   justify-content: space-between;
-  transition: all .3s ease;
+  transition: all 5s ease;
+  font-size: 0;
+}
+.visible{
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  transition: all 5s ease;
+  font-size: 16px;
 }
 /* Preloader */
 /* Loader Styles start here */
