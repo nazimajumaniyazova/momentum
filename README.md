@@ -45,3 +45,6 @@ Customize the application settings to your convenience.
 
 ![image](https://user-images.githubusercontent.com/85680325/198865603-fcbb8889-fa7f-4bdb-8044-876d7210ad4e.png)
 
+7. Slider
+
+![image](https://user-images.githubusercontent.com/85680325/198865671-a76a3812-097a-42c6-bb03-007cd1cc4d5b.png)
