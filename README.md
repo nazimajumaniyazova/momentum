@@ -34,3 +34,14 @@ Read motivational quotes from great people.
 Quotes are taken from the database using the Fetch API
 
 ![image](https://user-images.githubusercontent.com/85680325/198848976-64dcc06f-2cdd-4e4c-813c-7a13693ff225.png)
+
+5. Audio Player 
+
+![image](https://user-images.githubusercontent.com/85680325/198865570-03c41388-6823-4bd4-b9b4-246e96803c0c.png)
+
+6. Settings 
+
+Customize the application settings to your convenience.
+
+![image](https://user-images.githubusercontent.com/85680325/198865603-fcbb8889-fa7f-4bdb-8044-876d7210ad4e.png)
+
