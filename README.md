@@ -4,7 +4,7 @@
 ## Here is the link to the project deploy:
 https://nazimajumaniyazova.github.io/momentum/
 
-## Used tegcnologies:
+## Used technologies:
 * HTML
 * SCSS
 * Vanilla Javascript
