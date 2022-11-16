@@ -4,6 +4,11 @@
 ## Here is the link to the project deploy:
 https://nazimajumaniyazova.github.io/momentum/
 
+## Used tegcnologies:
+* HTML
+* SCSS
+* Vanilla Javascript
+
 ## Application functionality:
 
 1. Weather forecast 
