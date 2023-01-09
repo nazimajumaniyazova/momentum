@@ -218,7 +218,7 @@ function getRandomPlayNum(){
 const audioArray2 = document.querySelectorAll('.play-item')
 
 playListContainer2.addEventListener('click', (event)=>{
-    let eventTarget = event.target.closest('.play-item')
+    let eventTarget = event.target.closest('.audio-play-item')
     audioArray2.forEach(elem =>{
         elem.classList.remove('item-active')
     })
