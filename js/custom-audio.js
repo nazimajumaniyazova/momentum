@@ -44,8 +44,8 @@ playListContainer2.addEventListener('click', (event)=>{
 })
 
 const customAudio = new Audio("");
-customAudio.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].src;
-audioImg.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].img;
+customAudio.src = 'https://nazimajumaniyazova.github.io/momentum/'+ playList[audioPlayNum].src;
+audioImg.src = 'https://nazimajumaniyazova.github.io/momentum/'+ playList[audioPlayNum].img;
 audioName.textContent = playList[audioPlayNum].name
 
 
@@ -78,7 +78,7 @@ audioTimeline.addEventListener('mousemove', (event)=>{
 })
 customAudio.addEventListener('loadeddata',()=>{
     audioDuration.textContent = getTimeCodeFromNum(customAudio.duration);
-    audioImg.src = 'https://nazimajumaniyazova.github.io/Momentum/'+ playList[audioPlayNum].img;
+    audioImg.src = 'https://nazimajumaniyazova.github.io/momentum/'+ playList[audioPlayNum].img;
     customAudio.volume = .75;
 })
 
@@ -166,7 +166,7 @@ function customAudioPlay(){
         audioPlayBtn.classList.add('a-pause')
         customAudio.play()
     }
-    customAudio.src ='https://nazimajumaniyazova.github.io/Momentum/' + playList[audioPlayNum].src;
+    customAudio.src ='https://nazimajumaniyazova.github.io/momentum/' + playList[audioPlayNum].src;
     audioName.textContent = playList[audioPlayNum].name
     customAudio.play()
 }
